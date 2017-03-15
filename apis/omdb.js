@@ -1,14 +1,22 @@
-// instatiate a omdb Object
-// be able to call omdb.get('url')
-// receive back an object
-
 var http = require('http');
 
-function Omdbapi() {
-}
+function Omdbapi() {}
 
-Omdbapi.prototype.get = function () {
+Omdbapi.prototype.request = function (url, fn) {
+  http.get(url, (res) => {
+    res.on('data', (data) => {
+      fn(data);
+    });
 
+  }).on('error', (e) => {
+    throw e;
+  });
+};
+
+Omdbapi.prototype.get = function (title, fn) {
+  this.request('http://www.omdbapi.com/?t=' + title, (data) => {
+    fn(JSON.parse(data.toString('utf-8')));
+  });
 };
 
 module.exports = Omdbapi;
