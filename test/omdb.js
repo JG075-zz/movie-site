@@ -1,6 +1,5 @@
-var assert = require('assert');
+var assert = require('chai').assert;
 var Omdbapi = require('../lib/omdb');
-var testHelpers = require('../test/helpers.js');
 var nock = require('nock');
 
 var omdbapi = new Omdbapi();
@@ -36,21 +35,21 @@ describe('Omdb', function() {
   });
 
   it('should instatiate a new object', function() {
-    assert.ok(omdbapi instanceof Omdbapi);
+    assert.isObject(omdbapi);
   });
 
   describe('#get()', function() {
 
     it('should return an object', function(done) {
       omdbapi.get('Oz', function(data) {
-        assert.ok(testHelpers.isObject(data));
+        assert.isObject(data);
         done();
       });
     });
 
     it('should have a \'rating\' property', function(done){
       omdbapi.get('Oz', function(data) {
-        assert.ok(data.imdbRating !== undefined);
+        assert.notTypeOf(data.imdbRating, 'undefined');
         done();
       });
     });
