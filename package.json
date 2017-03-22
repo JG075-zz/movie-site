@@ -7,7 +7,8 @@
     "mongoose": "^4.9.0"
   },
   "devDependencies": {
-    "mocha": "^3.2.0",
+    "chai": "*",
+    "mocha": "*",
     "nock": "^9.0.9"
   },
   "scripts": {
