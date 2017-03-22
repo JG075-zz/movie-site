@@ -23,6 +23,6 @@ var movieSchema = new Schema({
   updated: { type: Date, default: Date.now }
 });
 
-var Movies = mongoose.model('Movies');
+var Movie = mongoose.model('Movie', movieSchema, 'movies');
 
-module.exports = Movies;
+module.exports = Movie;

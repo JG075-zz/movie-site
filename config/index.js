@@ -6,5 +6,5 @@ module.exports = {
     return 'mongodb://' + configValues.uname + ':' + configValues.pwd +
     '@ds055772.mlab.com:55772/movie-site';
   }
-  
+
 };

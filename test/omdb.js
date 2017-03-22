@@ -1,5 +1,5 @@
 var assert = require('assert');
-var Omdbapi = require('./omdb');
+var Omdbapi = require('../lib/omdb');
 var testHelpers = require('../test/helpers.js');
 var nock = require('nock');
 
