@@ -1,10 +1,19 @@
-var configValues = require('./config');
+module.exports = (function (env) {
+  var config = {};
 
-module.exports = {
+  switch (env) {
+    case 'production':
+      config = require('../env/production');
+      break;
 
-  getDbConnectString: function() {
-    return 'mongodb://' + configValues.uname + ':' + configValues.pwd +
-    '@ds055772.mlab.com:55772/movie-site';
+    case 'development':
+      config = require('../env/development');
+      break;
+
+    default:
+      console.error('NODE_ENV environment variable not set');
+      process.exit(1);
   }
 
-};
+  return config;
+})(process.env.NODE_ENV);
