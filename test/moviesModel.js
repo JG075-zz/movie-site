@@ -7,6 +7,7 @@ describe('Movie', function() {
       var movie = new Movie();
 
       movie.validate(function(err) {
+          assert.isNotNull(err.errors.title);
           done();
       });
   });
