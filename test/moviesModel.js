@@ -7,7 +7,6 @@ describe('Movie', function() {
       var movie = new Movie();
 
       movie.validate(function(err) {
-          expect(err.errors.name).to.exist;
           done();
       });
   });
