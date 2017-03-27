@@ -10,6 +10,10 @@ module.exports = (function (env) {
       config = require('../env/development');
       break;
 
+    case 'test':
+      config = require('../env/test');
+      break;
+
     default:
       console.error('NODE_ENV environment variable not set');
       process.exit(1);
